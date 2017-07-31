@@ -70,6 +70,19 @@
     }
 }
 
+-(CLLocationManager *)locationManager{
+    
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc]init];
+        _locationManager.distanceFilter = 10;
+        _locationManager.desiredAccuracy = 10;
+        [_locationManager requestWhenInUseAuthorization];
+        _locationManager.delegate =self;
+        //        _locationManager.allowsBackgroundLocationUpdates = YES;
+        
+    }
+    return _locationManager;
+}
 
 
 //地理定位代理
